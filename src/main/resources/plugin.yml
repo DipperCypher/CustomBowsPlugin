@@ -1,0 +1,8 @@
+name: CustomBows
+description: CustomBows that do things!
+version: '${project.version}'
+main: dev.dipper.bow.Bows
+api-version: 1.19
+authors: [DipperCypher]
+commands:
+  bow: { }

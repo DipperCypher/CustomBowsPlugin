@@ -1,0 +1,10 @@
+dev\dipper\bow\Bow\BowManager.class
+dev\dipper\bow\menu\BowsMenu.class
+dev\dipper\bow\commands\bow.class
+dev\dipper\bow\Bow\BowListerner.class
+dev\dipper\bow\Bows.class
+dev\dipper\bow\Api\menu\CypherMenu.class
+dev\dipper\bow\Api\menu\MenuInvtory.class
+dev\dipper\bow\Api\menu\MenuListener.class
+dev\dipper\bow\items\items.class
+dev\dipper\bow\Api\menu\CypherMenu$Rows.class
