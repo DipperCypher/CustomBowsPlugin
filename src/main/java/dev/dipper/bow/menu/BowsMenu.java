@@ -19,10 +19,10 @@ public class BowsMenu extends CypherMenu {
     public void onSetItem() {
         setItem(11, dev.dipper.bow.items.items.ElectricBow(), player -> {
             BowManager.giveElectricBow(player);
-            player.sendMessage(ChatColor.AQUA + "given player ElectricTouchBow");
+            player.sendMessage(ChatColor.AQUA + "given player ElectricBow");
             player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 1.0f);
             player.closeInventory();
-            plugin.getLogger().info(player.getName() + " was given the ElectricTouchItem");
+            plugin.getLogger().info(player.getName() + " was given the ElectricBow");
         } );
 
         setItem(12, dev.dipper.bow.items.items.TeleportBow(), player -> {

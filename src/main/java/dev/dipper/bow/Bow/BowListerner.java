@@ -13,27 +13,41 @@ public class BowListerner implements Listener{
 
     @EventHandler
     public static void onArrowLand(ProjectileHitEvent event) {
-        if (event.getEntity().getShooter() instanceof Player) {
-            Player player = (Player) event.getEntity().getShooter();
-            ItemStack itemInMainHand = player.getInventory().getItemInMainHand();
+        if (!(event.getEntity().getShooter() instanceof Player)) {
+            return;
+        }
 
-            if (itemInMainHand.getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.AQUA + "Electric Bow")) {
+        Player player = (Player) event.getEntity().getShooter();
+        ItemStack itemInMainHand = player.getInventory().getItemInMainHand();
+
+         if (itemInMainHand != null && itemInMainHand.hasItemMeta() && itemInMainHand.getItemMeta().hasDisplayName()) {
+            String displayName = itemInMainHand.getItemMeta().getDisplayName();
+            if (ChatColor.stripColor(displayName).equalsIgnoreCase("Electric Bow")) {
                 Location hitLocation = event.getEntity().getLocation();
                 hitLocation.getWorld().strikeLightning(hitLocation);
+                event.getEntity().remove();
                 return;
             }
-        }
+         }
     }
 
     @EventHandler
     public static void onArrowLand2(ProjectileHitEvent event) {
-        Player player = (Player) event.getEntity().getShooter();
-        ItemStack itemInMainHand = player.getInventory().getItemInMainHand();
-            
-        if (itemInMainHand.getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.AQUA + "Teleport Bow")) {
-            Location hiLocation = event.getEntity().getLocation();
-            player.teleport(hiLocation);
+        if (!(event.getEntity().getShooter() instanceof Player)) {
             return;
         }
+
+        Player player = (Player) event.getEntity().getShooter();
+        ItemStack itemInMainHand = player.getInventory().getItemInMainHand();
+
+         if (itemInMainHand != null && itemInMainHand.hasItemMeta() && itemInMainHand.getItemMeta().hasDisplayName()) {
+            String displayName = itemInMainHand.getItemMeta().getDisplayName();
+            if (ChatColor.stripColor(displayName).equalsIgnoreCase("Teleport Bow")) {
+                Location hitLocation = event.getEntity().getLocation();
+                player.teleport(hitLocation);
+                event.getEntity().remove();
+                return;
+            }
+         }
     }
 }    

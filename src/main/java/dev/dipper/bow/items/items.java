@@ -29,8 +29,8 @@ public class items {
         tbowMeta.setDisplayName(ChatColor.AQUA + "Teleport Bow");
         List<String> tbowlore = new ArrayList<>();
         tbowlore.add("");
-        tbowlore.add("Teleport player when");
-        tbowlore.add("Arrow lands");
+        tbowlore.add(ChatColor.GRAY + "Teleport player when");
+        tbowlore.add(ChatColor.GRAY + "Arrow lands");
         tbowlore.add("");
         tbowMeta.setLore(tbowlore);
         tbow.setItemMeta(tbowMeta);
