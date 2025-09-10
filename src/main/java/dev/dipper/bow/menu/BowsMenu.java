@@ -1,6 +1,10 @@
 package dev.dipper.bow.menu;
 
 import org.bukkit.Sound;
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
+
+import com.google.inject.Inject;
 
 import dev.dipper.bow.Bows;
 import dev.dipper.bow.Api.menu.CypherMenu;
@@ -10,6 +14,7 @@ import net.md_5.bungee.api.ChatColor;
 public class BowsMenu extends CypherMenu {
     private final Bows plugin;
 
+    @Inject
     public BowsMenu(Bows plugin) {
         super(Rows.SIX, "Bows Menu");
         this.plugin = plugin;
@@ -18,19 +23,28 @@ public class BowsMenu extends CypherMenu {
     @Override
     public void onSetItem() {
         setItem(11, dev.dipper.bow.items.items.ElectricBow(), player -> {
-            BowManager.giveElectricBow(player);
-            player.sendMessage(ChatColor.AQUA + "given player ElectricBow");
-            player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 1.0f);
-            player.closeInventory();
-            plugin.getLogger().info(player.getName() + " was given the ElectricBow");
+            giveBow(player, "ElectricBow", dev.dipper.bow.items.items.ElectricBow());
         } );
 
         setItem(12, dev.dipper.bow.items.items.TeleportBow(), player -> {
-            BowManager.giveTeleportBow(player);
-            player.sendMessage(ChatColor.AQUA + "given player TeleportBow");
-            player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 1.0f);
-            player.closeInventory();
-            plugin.getLogger().info(player.getName() + " was given the TeleportBow");
+            giveBow(player, "TeleportBow", dev.dipper.bow.items.items.ElectricBow());
         });
     }
+
+    private void giveBow(Player player, String bowName, ItemStack bowitem) {
+        if ("ElectricBow".equals(bowName)) {
+            BowManager.giveElectricBow(player);
+            return;
+        }
+
+        if ("TeleportBow".equals(bowName)) {
+            BowManager.giveTeleportBow(player);
+            return;
+        }
+
+        player.sendMessage(ChatColor.AQUA + "given player " + bowName);
+        player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 1.0f);
+        player.closeInventory();
+        plugin.getLogger().info(player.getName() + " was given " + bowName);
+    } 
 }
