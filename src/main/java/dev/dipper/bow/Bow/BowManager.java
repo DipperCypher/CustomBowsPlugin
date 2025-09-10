@@ -10,9 +10,4 @@ public class BowManager {
         ItemStack itemElectricBow = items.ElectricBow();
         player.getInventory().addItem(itemElectricBow);
     }
-
-    public static void giveBurn(Player player) {
-        ItemStack itemBurn = items.Burn();
-        player.getInventory().addItem(itemBurn);
-    }
 }
