@@ -24,5 +24,13 @@ public class BowsMenu extends CypherMenu {
             player.closeInventory();
             plugin.getLogger().info(player.getName() + " was given the ElectricTouchItem");
         } );
+
+        setItem(12, dev.dipper.bow.items.items.TeleportBow(), player -> {
+            BowManager.giveTeleportBow(player);
+            player.sendMessage(ChatColor.AQUA + "given player TeleportBow");
+            player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 1.0f);
+            player.closeInventory();
+            plugin.getLogger().info(player.getName() + " was given the TeleportBow");
+        });
     }
 }

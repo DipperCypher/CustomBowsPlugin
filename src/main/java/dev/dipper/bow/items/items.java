@@ -22,4 +22,18 @@ public class items {
         rod.setItemMeta(rodwMeta);
         return rod;
     }
+
+    public static ItemStack TeleportBow() {
+        final ItemStack tbow = new ItemStack(Material.BOW, 1);
+        final ItemMeta tbowMeta = tbow.getItemMeta();
+        tbowMeta.setDisplayName(ChatColor.AQUA + "Teleport Bow");
+        List<String> tbowlore = new ArrayList<>();
+        tbowlore.add("");
+        tbowlore.add("Teleport player when");
+        tbowlore.add("Arrow lands");
+        tbowlore.add("");
+        tbowMeta.setLore(tbowlore);
+        tbow.setItemMeta(tbowMeta);
+        return tbow;
+    }
 }

@@ -12,7 +12,7 @@ import net.md_5.bungee.api.ChatColor;
 public class BowListerner implements Listener{
 
     @EventHandler
-    public void onArrowLand(ProjectileHitEvent event) {
+    public static void onArrowLand(ProjectileHitEvent event) {
         if (event.getEntity().getShooter() instanceof Player) {
             Player player = (Player) event.getEntity().getShooter();
             ItemStack itemInMainHand = player.getInventory().getItemInMainHand();
@@ -22,7 +22,18 @@ public class BowListerner implements Listener{
                 hitLocation.getWorld().strikeLightning(hitLocation);
                 return;
             }
-
         }
     }
-}
+
+    @EventHandler
+    public static void onArrowLand2(ProjectileHitEvent event) {
+        Player player = (Player) event.getEntity().getShooter();
+        ItemStack itemInMainHand = player.getInventory().getItemInMainHand();
+            
+        if (itemInMainHand.getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.AQUA + "Teleport Bow")) {
+            Location hiLocation = event.getEntity().getLocation();
+            player.teleport(hiLocation);
+            return;
+        }
+    }
+}    

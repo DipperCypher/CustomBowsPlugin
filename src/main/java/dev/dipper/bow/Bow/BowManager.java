@@ -7,7 +7,12 @@ import dev.dipper.bow.items.items;
 
 public class BowManager {
     public static void giveElectricBow(Player player) {
-        ItemStack itemElectricBow = items.ElectricBow();
-        player.getInventory().addItem(itemElectricBow);
+        ItemStack ItemElectricBow = items.ElectricBow();
+        player.getInventory().addItem(ItemElectricBow);
+    }
+
+    public static void giveTeleportBow(Player player) {
+        ItemStack ItemTeleportBow = items.TeleportBow();
+        player.getInventory().addItem(ItemTeleportBow);
     }
 }
