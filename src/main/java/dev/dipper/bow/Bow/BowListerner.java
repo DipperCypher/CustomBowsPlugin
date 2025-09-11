@@ -64,7 +64,7 @@ public class BowListerner implements Listener{
             String displayName = itemInMainHand.getItemMeta().getDisplayName();
             if (ChatColor.stripColor(displayName).equalsIgnoreCase("Explosion Bow")) {
                 Location hitLocation = event.getEntity().getLocation();
-                hitLocation.getWorld().createExplosion(hitLocation, 4.0f);
+                hitLocation.getWorld().createExplosion(hitLocation, 20.0f);
                 event.getEntity().remove();
             }
         }

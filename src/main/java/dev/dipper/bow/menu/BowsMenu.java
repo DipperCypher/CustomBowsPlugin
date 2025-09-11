@@ -24,14 +24,17 @@ public class BowsMenu extends CypherMenu {
     public void onSetItem() {
         setItem(11, dev.dipper.bow.items.items.ElectricBow(), player -> {
             giveBow(player, "ElectricBow", dev.dipper.bow.items.items.ElectricBow());
+            player.closeInventory();
         } );
 
         setItem(12, dev.dipper.bow.items.items.TeleportBow(), player -> {
             giveBow(player, "TeleportBow", dev.dipper.bow.items.items.ElectricBow());
+            player.closeInventory();
         });
 
         setItem(13, dev.dipper.bow.items.items.ExplosionBow(), player -> {
             giveBow(player, "ExplosionBow", dev.dipper.bow.items.items.ExplosionBow());
+            player.closeInventory();
         });
     }
 
