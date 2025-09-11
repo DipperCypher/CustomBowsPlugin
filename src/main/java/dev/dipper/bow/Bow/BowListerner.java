@@ -50,4 +50,23 @@ public class BowListerner implements Listener{
             }
          }
     }
+
+    @EventHandler
+    public static void onArrowLand3(ProjectileHitEvent event) {
+        if (!(event.getEntity().getShooter() instanceof Player)) {
+            return;
+        }
+
+        Player player = (Player) event.getEntity().getShooter();
+        ItemStack itemInMainHand = player.getInventory().getItemInMainHand();
+
+        if (itemInMainHand != null && itemInMainHand.hasItemMeta() && itemInMainHand.getItemMeta().hasDisplayName()) {
+            String displayName = itemInMainHand.getItemMeta().getDisplayName();
+            if (ChatColor.stripColor(displayName).equalsIgnoreCase("Explosion Bow")) {
+                Location hitLocation = event.getEntity().getLocation();
+                hitLocation.getWorld().createExplosion(hitLocation, 4.0f);
+                event.getEntity().remove();
+            }
+        }
+    }
 }    

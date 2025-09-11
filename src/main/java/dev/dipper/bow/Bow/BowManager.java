@@ -15,4 +15,9 @@ public class BowManager {
         ItemStack ItemTeleportBow = items.TeleportBow();
         player.getInventory().addItem(ItemTeleportBow);
     }
+
+    public static void giveExplosionBow(Player player) {
+        ItemStack ItemExplosionBow = items.ExplosionBow();
+        player.getInventory().addItem(ItemExplosionBow);
+    }
 }

@@ -29,11 +29,25 @@ public class items {
         tbowMeta.setDisplayName(ChatColor.AQUA + "Teleport Bow");
         List<String> tbowlore = new ArrayList<>();
         tbowlore.add("");
-        tbowlore.add(ChatColor.GRAY + "Teleport player when");
-        tbowlore.add(ChatColor.GRAY + "Arrow lands");
+        tbowlore.add(ChatColor.GRAY + "Teleport player to");
+        tbowlore.add(ChatColor.GRAY + "Arrow lands location");
         tbowlore.add("");
         tbowMeta.setLore(tbowlore);
         tbow.setItemMeta(tbowMeta);
         return tbow;
+    }
+
+    public static ItemStack ExplosionBow() {
+        final ItemStack ebow = new ItemStack(Material.BOW, 1);
+        final ItemMeta ebowMeta = ebow.getItemMeta();
+        ebowMeta.setDisplayName(ChatColor.AQUA + "Explosion Bow");
+        List<String> ebowlore = new ArrayList<>();
+        ebowlore.add("");
+        ebowlore.add("");
+        ebowlore.add("");
+        ebowlore.add("");
+        ebowMeta.setLore(ebowlore);
+        ebow.setItemMeta(ebowMeta);
+        return ebow;
     }
 }

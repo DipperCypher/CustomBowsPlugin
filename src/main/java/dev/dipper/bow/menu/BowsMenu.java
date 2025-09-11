@@ -29,6 +29,10 @@ public class BowsMenu extends CypherMenu {
         setItem(12, dev.dipper.bow.items.items.TeleportBow(), player -> {
             giveBow(player, "TeleportBow", dev.dipper.bow.items.items.ElectricBow());
         });
+
+        setItem(13, dev.dipper.bow.items.items.ExplosionBow(), player -> {
+            giveBow(player, "ExplosionBow", dev.dipper.bow.items.items.ExplosionBow());
+        });
     }
 
     private void giveBow(Player player, String bowName, ItemStack bowitem) {
@@ -39,6 +43,11 @@ public class BowsMenu extends CypherMenu {
 
         if ("TeleportBow".equals(bowName)) {
             BowManager.giveTeleportBow(player);
+            return;
+        }
+
+        if ("ExplosionBow".equals(bowName)) {
+            BowManager.giveExplosionBow(player);
             return;
         }
 
