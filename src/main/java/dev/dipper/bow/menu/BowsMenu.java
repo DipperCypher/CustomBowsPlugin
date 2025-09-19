@@ -4,8 +4,6 @@ import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-import com.google.inject.Inject;
-
 import dev.dipper.bow.Bows;
 import dev.dipper.bow.Api.menu.CypherMenu;
 import dev.dipper.bow.Bow.BowManager;
@@ -14,7 +12,7 @@ import net.md_5.bungee.api.ChatColor;
 public class BowsMenu extends CypherMenu {
     private final Bows plugin;
 
-    @Inject
+   
     public BowsMenu(Bows plugin) {
         super(Rows.SIX, "Bows Menu");
         this.plugin = plugin;

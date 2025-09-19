@@ -19,7 +19,12 @@
       <repository>
           <id>enginehub-maven</id>
           <url>https://maven.enginehub.org/repo/</url>
-      </repository> 
+      </repository>
+      <repository>
+          <id>fumaz-maven-public</id>
+          <name>Fumaz Maven Public Repository</name>
+          <url>https://repo.fumaz.dev/repository/maven-public/</url>
+      </repository>  
   </repositories>
   <dependencies>
       <dependency>
@@ -29,9 +34,9 @@
             <scope>provided</scope>
       </dependency>
         <dependency>
-          <groupId>com.google.inject</groupId>
-          <artifactId>guice</artifactId>
-          <version>5.1.0</version>
+          <groupId>dev.fumaz</groupId>
+          <artifactId>infuse</artifactId>
+          <version>1.4.2</version>
       </dependency>
   </dependencies>
   <build>
