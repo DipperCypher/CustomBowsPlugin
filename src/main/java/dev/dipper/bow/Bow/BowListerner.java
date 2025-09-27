@@ -10,49 +10,10 @@ import org.bukkit.inventory.ItemStack;
 import net.md_5.bungee.api.ChatColor;
 
 public class BowListerner implements Listener{
+    
 
     @EventHandler
-    public static void onArrowLand(ProjectileHitEvent event) {
-        if (!(event.getEntity().getShooter() instanceof Player)) {
-            return;
-        }
-
-        Player player = (Player) event.getEntity().getShooter();
-        ItemStack itemInMainHand = player.getInventory().getItemInMainHand();
-
-         if (itemInMainHand != null && itemInMainHand.hasItemMeta() && itemInMainHand.getItemMeta().hasDisplayName()) {
-            String displayName = itemInMainHand.getItemMeta().getDisplayName();
-            if (ChatColor.stripColor(displayName).equalsIgnoreCase("Electric Bow")) {
-                Location hitLocation = event.getEntity().getLocation();
-                hitLocation.getWorld().strikeLightning(hitLocation);
-                event.getEntity().remove();
-                return;
-            }
-         }
-    }
-
-    @EventHandler
-    public static void onArrowLand2(ProjectileHitEvent event) {
-        if (!(event.getEntity().getShooter() instanceof Player)) {
-            return;
-        }
-
-        Player player = (Player) event.getEntity().getShooter();
-        ItemStack itemInMainHand = player.getInventory().getItemInMainHand();
-
-         if (itemInMainHand != null && itemInMainHand.hasItemMeta() && itemInMainHand.getItemMeta().hasDisplayName()) {
-            String displayName = itemInMainHand.getItemMeta().getDisplayName();
-            if (ChatColor.stripColor(displayName).equalsIgnoreCase("Teleport Bow")) {
-                Location hitLocation = event.getEntity().getLocation();
-                player.teleport(hitLocation);
-                event.getEntity().remove();
-                return;
-            }
-         }
-    }
-
-    @EventHandler
-    public static void onArrowLand3(ProjectileHitEvent event) {
+    public void onArrowLand(ProjectileHitEvent event) {
         if (!(event.getEntity().getShooter() instanceof Player)) {
             return;
         }
@@ -61,12 +22,19 @@ public class BowListerner implements Listener{
         ItemStack itemInMainHand = player.getInventory().getItemInMainHand();
 
         if (itemInMainHand != null && itemInMainHand.hasItemMeta() && itemInMainHand.getItemMeta().hasDisplayName()) {
+
             String displayName = itemInMainHand.getItemMeta().getDisplayName();
-            if (ChatColor.stripColor(displayName).equalsIgnoreCase("Explosion Bow")) {
+            String strippedName = ChatColor.stripColor(displayName);
+
+            Bow bow = Bow.getBow(strippedName);
+            
+            if (bow != null) {
                 Location hitLocation = event.getEntity().getLocation();
-                hitLocation.getWorld().createExplosion(hitLocation, 20.0f);
+                bow.handleHit(player, hitLocation, event);
                 event.getEntity().remove();
+                player.sendMessage("shot bow " + displayName);
             }
-        }
+        } 
     }
-}    
+
+}
