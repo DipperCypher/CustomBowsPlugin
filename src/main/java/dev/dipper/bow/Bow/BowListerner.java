@@ -6,6 +6,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.ProjectileHitEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 import dev.dipper.bow.Bows;
 import net.md_5.bungee.api.ChatColor;
@@ -41,7 +42,7 @@ public class BowListerner implements Listener{
             return;
         }
 
-        if (itemInMainHand != null && itemInMainHand.hasItemMeta() && itemInMainHand.getItemMeta().hasDisplayName()) {
+        if (itemInMainHand == null && itemInMainHand.hasItemMeta() && itemInMainHand.getItemMeta().hasDisplayName()) {
             plugin.getLogger().info("Item in hand has no display name / meta.");
             return;
         }

@@ -8,7 +8,7 @@ import dev.dipper.bow.Bow.Bow;
 
 public class TeleportBow extends Bow {
     public TeleportBow() {
-        super("&bTeleportBow");
+        super("Teleport Bow");
     }
 
     @Override

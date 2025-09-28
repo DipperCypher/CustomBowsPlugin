@@ -8,7 +8,7 @@ import dev.dipper.bow.Bow.Bow;
 
 public class ElectricBow extends Bow {
     public ElectricBow() {
-        super("&bElectric Bow");
+        super("Electric Bow");
     }
 
     @Override
